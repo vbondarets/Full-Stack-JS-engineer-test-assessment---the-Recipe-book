@@ -16,11 +16,39 @@ export class RecipeService {
     @Inject(CACHE_MANAGER) private readonly cacheService: Cache,
   ) {}
 
-  //#region Auth
+  //#region Recipe
 
   public async getAll(): Promise<any> {
     return 'Hello World';
   }
 
-  //#endregion Auth
+  public async getAllByIngredient(ingredient: string): Promise<any> {
+    return 'Hello World';
+  }
+
+  public async getAllByCategory(category: string): Promise<any> {
+    return 'Hello World';
+  }
+
+  public async getAllByRegion(region: string): Promise<any> {
+    return 'Hello World';
+  }
+
+  public async getById(id: string): Promise<any> {
+    return 'Hello World';
+  }
+
+  public async seedRegions(): Promise<any> {
+    return 'Hello World';
+  }
+
+  public async seedCategories(): Promise<any> {
+    return 'Hello World';
+  }
+
+  public async seedIngredients(): Promise<any> {
+    return 'Hello World';
+  }
+
+  //#endregion Recipe
 }
