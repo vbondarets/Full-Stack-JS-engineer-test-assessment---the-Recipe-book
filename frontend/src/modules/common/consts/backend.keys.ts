@@ -5,8 +5,8 @@ export const BACKEND_KEYS = {
     BY_INGRIDIENT: "recipe/ingridient/",
     BY_CATEGORY: "recipe/category/",
     BY_REGION: "recipe/region/",
-    CATEGORY: "recipe/category",
-    REGION: "recipe/region",
-    INGRIDIENT: "recipe/ingridient",
+    CATEGORY: "recipe/categories",
+    REGION: "recipe/regions",
+    INGRIDIENT: "recipe/ingredients",
   },
 };

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import axios from 'axios';
+import axios from "axios";
 
 type TConfig<T, U> = {
   url: string;
@@ -11,22 +11,20 @@ type TConfig<T, U> = {
 
 export class HttpSerivce {
   constructor(
-    protected baseUrl = import.meta.env.VITE_BE_URL || 'http://localhost:4200',
-    protected fetchingService = axios,
-    protected apiVersion = import.meta.env.VITE_API_VERSION || 'api'
+    protected baseUrl = import.meta.env.VITE_BE_URL,
+    protected fetchingService = axios
   ) {
     this.baseUrl = baseUrl;
     this.fetchingService = axios;
-    this.apiVersion = apiVersion;
   }
 
   private getFullApiUrl(url: string) {
-    return `${this.baseUrl}/${this.apiVersion}/${url}`;
+    return `${this.baseUrl}/${url}`;
   }
 
   private populateTokenToHeaderConfig() {
     return {
-      Authorization: `Bearer ${localStorage.getItem('token')}`
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
     };
   }
 
@@ -42,7 +40,7 @@ export class HttpSerivce {
     if (withAuth) {
       config.headers = {
         ...config.headers,
-        ...this.populateTokenToHeaderConfig()
+        ...this.populateTokenToHeaderConfig(),
       };
     }
     return this.fetchingService.get(
@@ -55,7 +53,7 @@ export class HttpSerivce {
     if (withAuth) {
       config.headers = {
         ...config.headers,
-        ...this.populateTokenToHeaderConfig()
+        ...this.populateTokenToHeaderConfig(),
       };
     }
     return this.fetchingService.post<any>(
@@ -69,7 +67,7 @@ export class HttpSerivce {
     if (withAuth) {
       config.headers = {
         ...config.headers,
-        ...this.populateTokenToHeaderConfig()
+        ...this.populateTokenToHeaderConfig(),
       };
     }
     return this.fetchingService.patch<T>(
@@ -83,7 +81,7 @@ export class HttpSerivce {
     if (withAuth) {
       config.headers = {
         ...config.headers,
-        ...this.populateTokenToHeaderConfig()
+        ...this.populateTokenToHeaderConfig(),
       };
     }
     return this.fetchingService.patch<T>(
@@ -97,7 +95,7 @@ export class HttpSerivce {
     if (withAuth) {
       config.headers = {
         ...config.headers,
-        ...this.populateTokenToHeaderConfig()
+        ...this.populateTokenToHeaderConfig(),
       };
     }
     return this.fetchingService.delete<T>(

@@ -6,13 +6,21 @@ interface IRecipeState {
   recipes: TRecipe[];
   setRecipes: (value: TRecipe[]) => void;
   recipe: TRecipe | null;
-  setRecipe: (value: TRecipe) => void;
+  setRecipe: (value: TRecipe | null) => void;
   category: string;
   setCategory: (value: string) => void;
   region: string;
   setRegion: (value: string) => void;
-  ingredients: string;
-  setIngredients: (value: string) => void;
+  ingredient: string;
+  setIngredient: (value: string) => void;
+  categories: string[];
+  setCategories: (value: string[]) => void;
+  regions: string[];
+  setRegions: (value: string[]) => void;
+  ingredients: string[];
+  setIngredients: (value: string[]) => void;
+  recipeId: string;
+  setRecipeId: (value: string) => void;
 }
 
 export const useRecipeStore = createWithEqualityFn<IRecipeState>((set) => {
@@ -22,7 +30,18 @@ export const useRecipeStore = createWithEqualityFn<IRecipeState>((set) => {
     sort: "default",
     category: "",
     region: "",
-    ingredients: "",
+    ingredient: "",
+    categories: [],
+    regions: [],
+    ingredients: [],
+    recipeId: "",
+    setRecipeId: (value: string): void => {
+      set(() => {
+        return {
+          recipeId: value,
+        };
+      });
+    },
     setRecipes: (value: TRecipe[]): void => {
       set(() => {
         return {
@@ -30,7 +49,7 @@ export const useRecipeStore = createWithEqualityFn<IRecipeState>((set) => {
         };
       });
     },
-    setRecipe: (value: TRecipe): void => {
+    setRecipe: (value: TRecipe | null): void => {
       set(() => {
         return {
           recipe: value,
@@ -51,7 +70,28 @@ export const useRecipeStore = createWithEqualityFn<IRecipeState>((set) => {
         };
       });
     },
-    setIngredients: (value: string): void => {
+    setIngredient: (value: string): void => {
+      set(() => {
+        return {
+          ingredient: value,
+        };
+      });
+    },
+    setCategories: (value: string[]): void => {
+      set(() => {
+        return {
+          categories: value,
+        };
+      });
+    },
+    setRegions: (value: string[]): void => {
+      set(() => {
+        return {
+          regions: value,
+        };
+      });
+    },
+    setIngredients: (value: string[]): void => {
       set(() => {
         return {
           ingredients: value,
