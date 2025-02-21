@@ -161,6 +161,11 @@ export class RecipeService {
   }
 
   public async getById(id: string): Promise<RecipeResponseModel> {
+    if (!id) {
+      throw await this.errorService.notFound([
+        { key: 'errors.recipeNotFound' },
+      ]);
+    }
     const cashedRecipe = await this.cacheService.get<RecipeResponseModel>(
       cacheConsts.recipeById + id,
     );
@@ -182,6 +187,42 @@ export class RecipeService {
       return transformedRecipe;
     }
     return cashedRecipe;
+  }
+
+  public async getRegions(): Promise<string[]> {
+    const cashedRegions = await this.cacheService.get<string[]>(
+      cacheConsts.recipeRegions,
+    );
+    if (!cashedRegions) {
+      throw await this.errorService.notFound([
+        { key: 'errors.regionsNotFound' },
+      ]);
+    }
+    return cashedRegions;
+  }
+
+  public async getCategories(): Promise<string[]> {
+    const cashedCategories = await this.cacheService.get<string[]>(
+      cacheConsts.recipeCategories,
+    );
+    if (!cashedCategories) {
+      throw await this.errorService.notFound([
+        { key: 'errors.categoriesNotFound' },
+      ]);
+    }
+    return cashedCategories;
+  }
+
+  public async getIngredients(): Promise<string[]> {
+    const cashedIngredients = await this.cacheService.get<string[]>(
+      cacheConsts.recipeIngredients,
+    );
+    if (!cashedIngredients) {
+      throw await this.errorService.notFound([
+        { key: 'errors.ingredientsNotFound' },
+      ]);
+    }
+    return cashedIngredients;
   }
 
   public async seedRegions(): Promise<void> {

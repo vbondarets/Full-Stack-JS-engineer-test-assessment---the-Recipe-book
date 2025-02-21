@@ -16,7 +16,6 @@ export class GetByIdReturnDto {
       youtube: '',
       measures: ['1 large', '1 1/2 L', 'Half', '1 Handfull'],
     },
-
     description: 'Returns recipe by id',
   })
   public recipe!: RecipeResponseModel;

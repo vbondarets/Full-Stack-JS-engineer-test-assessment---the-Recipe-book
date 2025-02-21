@@ -13,5 +13,8 @@
   "recipeNotFound": "Recipe not found",
   "ingredientNotFound": "Ingredient not found",
   "categoryNotFound": "Category not found",
-  "regionNotFound": "Region not found"
+  "regionNotFound": "Region not found",
+  "regionsNotFound": "Regions not found",
+  "categoriesNotFound": "Categories not found",
+  "ingredientsNotFound": "Ingredients not found"
 }

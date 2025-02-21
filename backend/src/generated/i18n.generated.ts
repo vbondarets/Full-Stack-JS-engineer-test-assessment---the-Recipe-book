@@ -21,6 +21,9 @@ export type I18nTranslations = {
         "ingredientNotFound": string;
         "categoryNotFound": string;
         "regionNotFound": string;
+        "regionsNotFound": string;
+        "categoriesNotFound": string;
+        "ingredientsNotFound": string;
     };
 };
 /* prettier-ignore */
