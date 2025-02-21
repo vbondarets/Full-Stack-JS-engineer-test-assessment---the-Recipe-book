@@ -4,7 +4,7 @@ import { RecipeService } from './recipe.service';
 
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
-import { GetAllReturnDto } from './dto/swagger-examples';
+import { GetAllReturnDto, GetByIdReturnDto } from './dto/swagger-examples';
 
 @ApiTags('Recipe')
 @Controller('recipe')
@@ -53,7 +53,7 @@ export class RecipeController {
 
   @ApiResponse({
     status: 200,
-    type: GetAllReturnDto,
+    type: GetByIdReturnDto,
   })
   @Get(':id')
   public async getById(@Param('id') id: string) {
