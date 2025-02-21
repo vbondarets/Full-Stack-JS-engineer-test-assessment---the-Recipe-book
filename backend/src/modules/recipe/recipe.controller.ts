@@ -86,7 +86,7 @@ export class RecipeController {
     type: GetByIdReturnDto,
   })
   @Get('ingredients')
-  public async getAllIngridients() {
+  public async getAllIngredients() {
     const ingredients = await this.recipeService.getIngredients();
     return { ingredients };
   }
