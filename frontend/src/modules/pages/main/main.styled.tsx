@@ -12,4 +12,10 @@ export const MainPage = styled(MainPageContainer)`
     max-width: 1200px;
     flex-direction: column;
   }
+  .selectors-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding-block: 20px;
+  }
 `;

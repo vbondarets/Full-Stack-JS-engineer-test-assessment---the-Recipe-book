@@ -65,7 +65,7 @@ export const useRecipe = () => {
   useQuery({
     queryKey: [ingredient],
     queryFn: async () =>
-      ingredient ? recipeService.getByRegion(ingredient) : null,
+      ingredient ? recipeService.getByIngridient(ingredient) : null,
     onSuccess: (data) => {
       if (data) setRecipes(data);
     },

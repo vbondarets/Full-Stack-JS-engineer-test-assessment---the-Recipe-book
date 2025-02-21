@@ -60,6 +60,8 @@ export const useRecipeStore = createWithEqualityFn<IRecipeState>((set) => {
       set(() => {
         return {
           category: value,
+          region: "",
+          ingredient: "",
         };
       });
     },
@@ -67,6 +69,8 @@ export const useRecipeStore = createWithEqualityFn<IRecipeState>((set) => {
       set(() => {
         return {
           region: value,
+          category: "",
+          ingredient: "",
         };
       });
     },
@@ -74,6 +78,8 @@ export const useRecipeStore = createWithEqualityFn<IRecipeState>((set) => {
       set(() => {
         return {
           ingredient: value,
+          category: "",
+          region: "",
         };
       });
     },

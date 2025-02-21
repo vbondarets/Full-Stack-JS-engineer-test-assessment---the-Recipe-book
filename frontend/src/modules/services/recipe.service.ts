@@ -11,49 +11,49 @@ class RecipeService extends HttpSerivce {
     const response = await this.get({
       url: BACKEND_KEYS.RECIPE.RECIPE_ALL,
     });
-    return response.data as TRecipe[];
+    return response.data.recipes as TRecipe[];
   }
   async getByCategory(category: string) {
     const response = await this.get({
       url: BACKEND_KEYS.RECIPE.BY_CATEGORY + category,
     });
-    return response.data as TRecipe[];
+    return response.data.recipes as TRecipe[];
   }
   async getByRegion(region: string) {
     const response = await this.get({
       url: BACKEND_KEYS.RECIPE.BY_REGION + region,
     });
-    return response.data as TRecipe[];
+    return response.data.recipes as TRecipe[];
   }
   async getByIngridient(ingridient: string) {
     const response = await this.get({
-      url: BACKEND_KEYS.RECIPE.BY_INGRIDIENT + ingridient,
+      url: BACKEND_KEYS.RECIPE.BY_INGREDIENT + ingridient,
     });
-    return response.data as TRecipe[];
+    return response.data.recipes as TRecipe[];
   }
   async getById(id: string) {
     const response = await this.get({
       url: BACKEND_KEYS.RECIPE.RECIPE + id,
     });
-    return response.data as TRecipe;
+    return response.data.recipe as TRecipe;
   }
   async getCategories() {
     const response = await this.get({
       url: BACKEND_KEYS.RECIPE.CATEGORY,
     });
-    return response.data as string[];
+    return response.data.categories as string[];
   }
   async getRegions() {
     const response = await this.get({
       url: BACKEND_KEYS.RECIPE.REGION,
     });
-    return response.data as string[];
+    return response.data.regions as string[];
   }
   async getIngridients() {
     const response = await this.get({
       url: BACKEND_KEYS.RECIPE.INGRIDIENT,
     });
-    return response.data as string[];
+    return response.data.ingredients as string[];
   }
 }
 
