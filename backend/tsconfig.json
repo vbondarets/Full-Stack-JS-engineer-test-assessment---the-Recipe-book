@@ -17,7 +17,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
-    "types": ["./src/types/global.d.ts"],
+    "types": ["./src/global-types/global.d.ts"],
     "composite": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
