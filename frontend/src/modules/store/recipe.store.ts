@@ -21,6 +21,7 @@ interface IRecipeState {
   setIngredients: (value: string[]) => void;
   recipeId: string;
   setRecipeId: (value: string) => void;
+  reset: () => void;
 }
 
 export const useRecipeStore = createWithEqualityFn<IRecipeState>((set) => {
@@ -101,6 +102,15 @@ export const useRecipeStore = createWithEqualityFn<IRecipeState>((set) => {
       set(() => {
         return {
           ingredients: value,
+        };
+      });
+    },
+    reset: (): void => {
+      set(() => {
+        return {
+          category: "",
+          region: "",
+          ingredient: "",
         };
       });
     },

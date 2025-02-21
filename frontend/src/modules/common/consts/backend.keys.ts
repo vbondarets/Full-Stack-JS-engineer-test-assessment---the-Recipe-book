@@ -1,6 +1,6 @@
 export const BACKEND_KEYS = {
   RECIPE: {
-    RECIPE: "recipe/",
+    RECIPE: "recipe/one/",
     RECIPE_ALL: "recipe/all",
     BY_INGREDIENT: "recipe/ingredient/",
     BY_CATEGORY: "recipe/category/",

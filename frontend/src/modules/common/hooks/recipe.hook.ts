@@ -18,7 +18,7 @@ export const useRecipe = () => {
     setRegions,
   } = useRecipeStore();
 
-  useQuery({
+  const { refetch } = useQuery({
     queryKey: [QUERY_KEYS.RECIPES],
     queryFn: async () => recipeService.getAll(),
     onSuccess: (data) => {
@@ -126,4 +126,8 @@ export const useRecipe = () => {
     retry: false,
     refetchOnWindowFocus: false,
   });
+
+  return {
+    refetchAll: refetch,
+  };
 };
