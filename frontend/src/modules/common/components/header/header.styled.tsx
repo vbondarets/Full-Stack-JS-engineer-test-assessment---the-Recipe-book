@@ -21,4 +21,10 @@ export const Header = styled(HeaderComponent)`
     height: 100%;
     justify-content: center;
   }
+  .header-text {
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    text-transform: capitalize;
+  }
 `;

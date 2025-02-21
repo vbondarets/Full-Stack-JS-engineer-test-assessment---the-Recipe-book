@@ -22,6 +22,7 @@ interface IRecipeState {
   recipeId: string;
   setRecipeId: (value: string) => void;
   reset: () => void;
+  clearRecipe: () => void;
 }
 
 export const useRecipeStore = createWithEqualityFn<IRecipeState>((set) => {
@@ -111,6 +112,13 @@ export const useRecipeStore = createWithEqualityFn<IRecipeState>((set) => {
           category: "",
           region: "",
           ingredient: "",
+        };
+      });
+    },
+    clearRecipe: (): void => {
+      set(() => {
+        return {
+          recipe: null,
         };
       });
     },
