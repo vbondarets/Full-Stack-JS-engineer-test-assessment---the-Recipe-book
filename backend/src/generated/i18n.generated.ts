@@ -16,6 +16,11 @@ export type I18nTranslations = {
         "unauthorized": string;
         "forbidden": string;
         "badRequest": string;
+        "recipesNotFound": string;
+        "recipeNotFound": string;
+        "ingredientNotFound": string;
+        "categoryNotFound": string;
+        "regionNotFound": string;
     };
 };
 /* prettier-ignore */

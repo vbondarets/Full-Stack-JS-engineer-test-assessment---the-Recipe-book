@@ -3,11 +3,12 @@ import { RecipeService } from './recipe.service';
 import { RecipeController } from './recipe.controller';
 import { ErrorModule } from '../error/error.module';
 import { ConfigService } from '@nestjs/config';
+import { AxiosModule } from '../axios/axios.module';
 
 @Module({
   providers: [RecipeService],
   controllers: [RecipeController],
-  imports: [ErrorModule],
+  imports: [ErrorModule, AxiosModule],
 })
 export class RecipeModule implements OnModuleInit {
   constructor(

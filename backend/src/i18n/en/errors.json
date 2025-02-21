@@ -8,5 +8,10 @@
   "conflict": "Conflict",
   "unauthorized": "Unauthorized",
   "forbidden": "Forbidden",
-  "badRequest": "Bad request"
+  "badRequest": "Bad request",
+  "recipesNotFound": "Recipes not found",
+  "recipeNotFound": "Recipe not found",
+  "ingredientNotFound": "Ingredient not found",
+  "categoryNotFound": "Category not found",
+  "regionNotFound": "Region not found"
 }

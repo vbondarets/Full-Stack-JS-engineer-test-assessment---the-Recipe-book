@@ -7,7 +7,7 @@ import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { GetAllReturnDto } from './dto/swagger-examples';
 
 @ApiTags('Recipe')
-@Controller('Recipe')
+@Controller('recipe')
 export class RecipeController {
   constructor(private readonly recipeService: RecipeService) {}
 
@@ -16,8 +16,9 @@ export class RecipeController {
     type: GetAllReturnDto,
   })
   @Get('all')
-  public async getAll(): Promise<any> {
-    return this.recipeService.getAll();
+  public async getAll() {
+    const recipes = await this.recipeService.getAll();
+    return { recipes };
   }
 
   @ApiResponse({
@@ -25,10 +26,9 @@ export class RecipeController {
     type: GetAllReturnDto,
   })
   @Get('ingredient/:ingredient')
-  public async getByIngredient(
-    @Param('ingredient') ingredient: string,
-  ): Promise<any> {
-    return this.recipeService.getAllByIngredient(ingredient);
+  public async getByIngredient(@Param('ingredient') ingredient: string) {
+    const recipes = await this.recipeService.getAllByIngredient(ingredient);
+    return { recipes };
   }
 
   @ApiResponse({
@@ -36,10 +36,9 @@ export class RecipeController {
     type: GetAllReturnDto,
   })
   @Get('category/:category')
-  public async getAllByCategory(
-    @Param('category') category: string,
-  ): Promise<any> {
-    return this.recipeService.getAllByCategory(category);
+  public async getAllByCategory(@Param('category') category: string) {
+    const recipes = await this.recipeService.getAllByCategory(category);
+    return { recipes };
   }
 
   @ApiResponse({
@@ -47,8 +46,9 @@ export class RecipeController {
     type: GetAllReturnDto,
   })
   @Get('region/:region')
-  public async getAllByRegion(@Param('region') region: string): Promise<any> {
-    return this.recipeService.getAllByRegion(region);
+  public async getAllByRegion(@Param('region') region: string) {
+    const recipes = await this.recipeService.getAllByRegion(region);
+    return { recipes };
   }
 
   @ApiResponse({
@@ -56,7 +56,8 @@ export class RecipeController {
     type: GetAllReturnDto,
   })
   @Get(':id')
-  public async getById(@Param('id') id: string): Promise<any> {
-    return this.recipeService.getById(id);
+  public async getById(@Param('id') id: string) {
+    const recipe = await this.recipeService.getById(id);
+    return { recipe };
   }
 }
