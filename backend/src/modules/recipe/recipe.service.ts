@@ -59,7 +59,7 @@ export class RecipeService {
       cacheConsts.recipeIngredients,
     );
     if (cashedIngredients && !cashedIngredients.includes(ingredient)) {
-      throw await this.errorService.badRequest([
+      throw await this.errorService.notFound([
         { key: 'errors.ingredientNotFound' },
       ]);
     }
@@ -97,7 +97,7 @@ export class RecipeService {
       cacheConsts.recipeCategories,
     );
     if (cashedCategories && !cashedCategories.includes(category)) {
-      throw await this.errorService.badRequest([
+      throw await this.errorService.notFound([
         { key: 'errors.ingredientNotFound' },
       ]);
     }
@@ -131,7 +131,7 @@ export class RecipeService {
       cacheConsts.recipeRegions,
     );
     if (cashedRegions && !cashedRegions.includes(region)) {
-      throw await this.errorService.badRequest([
+      throw await this.errorService.notFound([
         { key: 'errors.regionNotFound' },
       ]);
     }
