@@ -16,6 +16,8 @@ export const useRecipe = () => {
     setRecipe,
     setRecipes,
     setRegions,
+    recipeCategory,
+    setRecipeCategoryRecipes,
   } = useRecipeStore();
 
   const { refetch } = useQuery({
@@ -34,7 +36,7 @@ export const useRecipe = () => {
         });
       }
     },
-    refetchOnMount: true,
+    refetchOnMount: false,
     retry: false,
     refetchOnWindowFocus: false,
   });
@@ -112,6 +114,27 @@ export const useRecipe = () => {
     queryFn: async () => (recipeId ? recipeService.getById(recipeId) : null),
     onSuccess: (data) => {
       setRecipe(data);
+    },
+    onError: (error) => {
+      if (isAxiosError(error)) {
+        Swal.fire({
+          icon: "error",
+          title: "Request error",
+          text: error.response?.data.messages[0] as string,
+        });
+      }
+    },
+    refetchOnMount: false,
+    retry: false,
+    refetchOnWindowFocus: false,
+  });
+
+  useQuery({
+    queryKey: [recipeId, recipeCategory],
+    queryFn: async () =>
+      recipeId ? recipeService.getByCategory(recipeCategory) : null,
+    onSuccess: (data) => {
+      if (data) setRecipeCategoryRecipes(data);
     },
     onError: (error) => {
       if (isAxiosError(error)) {

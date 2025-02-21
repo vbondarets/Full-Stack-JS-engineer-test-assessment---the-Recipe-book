@@ -5,9 +5,14 @@ import { useCallback } from "react";
 
 interface IProps extends IBasicProps {
   recipe: TRecipe;
+  size?: "default" | "small";
 }
 
-export const RecipeComponent = ({ className, recipe }: IProps) => {
+export const RecipeComponent = ({
+  className,
+  recipe,
+  size = "default",
+}: IProps) => {
   const navigate = useNavigate();
 
   const handleClick = useCallback(() => {
@@ -15,11 +20,14 @@ export const RecipeComponent = ({ className, recipe }: IProps) => {
   }, [recipe.id, navigate]);
 
   return (
-    <div className={className} onClick={handleClick}>
-      <div className="recipe-container">
-        <p className="recipe-meal">{recipe.meal}</p>
+    <div
+      className={`${className} ${size === "small" && "small"}`}
+      onClick={handleClick}
+    >
+      <div className="recipe-item-container">
+        <p className="recipe-item-meal">{recipe.meal}</p>
         <img
-          className="recipe-thumbnail"
+          className="recipe-item-thumbnail"
           src={recipe.thumbnail}
           alt={recipe.meal}
         />

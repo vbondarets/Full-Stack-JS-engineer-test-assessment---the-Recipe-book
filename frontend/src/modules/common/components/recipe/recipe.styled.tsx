@@ -8,7 +8,12 @@ export const Recipe = styled(RecipeComponent)`
   width: 300px;
   height: 300px;
   margin: auto;
-  .recipe-container {
+  &.small {
+    width: 150px;
+    height: 150px;
+  }
+
+  .recipe-item-container {
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -19,14 +24,21 @@ export const Recipe = styled(RecipeComponent)`
     height: 90%;
     align-items: center;
   }
-  .recipe-meal {
+  .recipe-item-meal {
+    width: 80%;
     color: white;
     font-size: 20px;
     font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    &.small {
+      font-size: 15px;
+    }
   }
-  .recipe-thumbnail {
-    width: 120px;
-    height: 120px;
+  .recipe-item-thumbnail {
+    width: 50%;
+    height: 50%;
     object-fit: cover;
     border-radius: 5px;
   }

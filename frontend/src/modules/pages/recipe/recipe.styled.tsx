@@ -3,17 +3,27 @@ import RecipePageContainer from "./recipe.page";
 
 export const RecipePage = styled(RecipePageContainer)`
   display: flex;
-  justify-content: start;
-  align-items: center;
+  justify-content: space-around;
   width: 100%;
-  min-height: 100%;
-  padding: 80px;
+  height: 100vh;
+  padding-inline: 80px;
+
   .recipe-container {
     display: flex;
-    width: 100%;
+    width: auto;
     max-width: 1200px;
     flex-direction: column;
     row-gap: 20px;
+    height: fit-content;
+    overflow: auto;
+  }
+  .right-sidebar {
+    row-gap: 20px;
+    width: 300px;
+    height: 100%;
+    align-items: center;
+    background-color: #6d6a8d;
+    overflow: scroll;
   }
   .recipe-meal {
     font-size: 30px;
@@ -67,5 +77,14 @@ export const RecipePage = styled(RecipePageContainer)`
     word-wrap: break-word;
     overflow: auto;
     max-width: 100%;
+  }
+  .category-recipes-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    height: fit-content;
+    padding-block: 10px;
   }
 `;

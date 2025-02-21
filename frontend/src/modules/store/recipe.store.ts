@@ -23,6 +23,10 @@ interface IRecipeState {
   setRecipeId: (value: string) => void;
   reset: () => void;
   clearRecipe: () => void;
+  recipeCategory: string;
+  setRecipeCategory: (value: string) => void;
+  recipeCategoryRecipes: TRecipe[];
+  setRecipeCategoryRecipes: (value: TRecipe[]) => void;
 }
 
 export const useRecipeStore = createWithEqualityFn<IRecipeState>((set) => {
@@ -37,6 +41,8 @@ export const useRecipeStore = createWithEqualityFn<IRecipeState>((set) => {
     regions: [],
     ingredients: [],
     recipeId: "",
+    recipeCategory: "",
+    recipeCategoryRecipes: [],
     setRecipeId: (value: string): void => {
       set(() => {
         return {
@@ -119,6 +125,20 @@ export const useRecipeStore = createWithEqualityFn<IRecipeState>((set) => {
       set(() => {
         return {
           recipe: null,
+        };
+      });
+    },
+    setRecipeCategoryRecipes: (value: TRecipe[]): void => {
+      set(() => {
+        return {
+          recipeCategoryRecipes: value,
+        };
+      });
+    },
+    setRecipeCategory: (value: string): void => {
+      set(() => {
+        return {
+          recipeCategory: value,
         };
       });
     },
